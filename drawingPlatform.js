@@ -5,6 +5,6 @@ function setup() {
 
 function draw() {
   noStroke();
-  fill(random(255), random(255), random(255), 100);
+  fill(random(255), 0, random(255), 200);
   circle(mouseX, mouseY, 20)
 }
