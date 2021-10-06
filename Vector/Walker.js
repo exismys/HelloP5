@@ -2,12 +2,15 @@ class Walker {
     constructor(x, y, r = 10) {
         this.pos = createVector(x, y);
         this.vel = createVector(1, -1);
+        this.acc = createVector();
         this.r = r;
     }
 
     update() {
-        this.pos.x = this.pos.x + this.vel.x;
-        this.pos.y = this.pos.y + this.vel.y;
+        let mouse = createVector(mouseX, mouseY);
+        this.acc = p5.Vector.sub(mouse, this.pos);
+        this.acc.setMag(1);
+        this.pos.add(this.vel.add(this.acc).limit(5));
     }
 
     show() {
